@@ -5,7 +5,7 @@ import { add, unload, update } from "../store/features/ContactSlice";
 
 const Form = () => {
     const loadedContact = useSelector((state) => state.contact.loadedValue);
-    const [toggleSwitch, setToggleSwitch] = useState(false);
+    const [toggleSwitch, setToggleSwitch] = useState(true);
     const dispatch = useDispatch();
     const [contact, setContact] = useState({
         name: "",
@@ -38,6 +38,7 @@ const Form = () => {
     const updateContact = () => {
         dispatch(update(contact));
         clearContact();
+        setToggleSwitch(false);
     };
     return (
         <div className="mx-auto my-4 max-w-3xl p-3 grid grid-cols-2 gap-5 bg-slate-200">
